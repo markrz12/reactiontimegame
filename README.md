@@ -1,4 +1,4 @@
-# reactiontime
+# Narzędzie mierzące czas reakcji
 
 
 
