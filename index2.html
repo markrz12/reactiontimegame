@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl">
+   <head>
+       <title> Czas reakcji </title>
+       <meta charset="UTF-8">
+       <link rel="stylesheet" href="main.css" />
+   </head>
+   <body>
+
+     <h1> <img src="logo.png"><br>
+       Badanie czasu reakcji
+     </h1>
+
+     <div id = "Instrukcja1">
+       <h2>Przed przystąpieniem do badania zapoznaj się z instrukcją <br>
+        <button class="button" onclick="Instrukcja()">OK!</button> </h2>
+    </div>
+
+    <script>
+      function Instrukcja() {
+        document.getElementById("Instrukcja1").innerHTML = document.getElementById("Instrukcja2").innerHTML;
+      }
+    </script>
+
+    <div id = "Instrukcja2" style="visibility: hidden; display:inline;" >
+      <h2>Twoim zadaniem będzie kliknęcie na pojawiające się kwadraty tak szybko jak to możliwe.<br> Powodzenia! <br> </h2>
+      <h2>  <div class ="menu"><a href="badanie.html">→ Rozpocznij badanie</a></div>
+        <div class ="menu"><a href="index.html">→ Wróć do menu</a></div>
+         </h2>
+   </div>
+
+
+
+   </body>
+</html>

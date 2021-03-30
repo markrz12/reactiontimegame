@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+   <head>
+       <title> Czas reakcji </title>
+       <meta charset="UTF-8">
+       <link rel="stylesheet" href="main.css" />
+
+   </head>
+   <body>
+     <div id="headlines">
+       <h1>Badanie czasu reakcji</h1>
+       <p id="CzasReakcja"></p>
+   </div>
+
+
+   <div class="canvas2">
+     <canvas id="pole"></canvas>
+     </div>
+
+ <script>
+     var canvas = document.getElementById('pole');
+     var ctx = canvas.getContext('2d');
+     var count = 0;
+     var startTime;
+
+//Punkt startu
+   function start() {
+       const date = new Date();
+       startTime = date.getTime();
+   }
+
+//Losowa liczba
+       function randomNumber(limit) {
+           const n = Math.floor(Math.random() * limit);
+           return n;
+       }
+
+//Rysuj kwadrat
+   function RysujKwadrat() {
+         ctx.fillStyle = "deeppink";
+         ctx.fillRect(60, 60, 100, 100);
+   }
+
+//Różnice czasu między dwoma wynikami
+   function RozniceCzasu(CzasAktualny) {
+             const date = new Date();
+             const endTime = date.getTime();
+             const d = (Math.abs(startTime - endTime)) ;
+             return d;
+         }
+
+
+//Czyczenie planszy po każdym ruchu, zmiana położenia kwadratu, czas reakcji
+   function PolePlanszy() {
+       canvas.width = canvas.width;
+       canvas.style.transform = `translate(${randomNumber(300)}px, ${randomNumber(300)}px)`;
+       var reakcja = RozniceCzasu(startTime);
+       document.getElementById('CzasReakcja').innerHTML = `Czas reakcji: <strong>${reakcja}ms</strong>`;
+       start();
+       RysujKwadrat();
+   }
+
+
+
+   RysujKwadrat();
+   start();
+   canvas.onclick = PolePlanszy;
+
+ </script>
+
+
+
+   </body>
+</html>
